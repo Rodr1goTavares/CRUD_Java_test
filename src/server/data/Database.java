@@ -10,6 +10,5 @@ public class Database {
         for (String[] strings : accountMatriz) {
             System.out.println("DataBase receive: " + Arrays.toString(strings));
         }
-
     }
 }

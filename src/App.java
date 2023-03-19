@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        start();
+        start(); //Starts a app menu.
     }
 
     public static void start(){
@@ -15,6 +15,8 @@ public class App {
             loginPage();
         } else if(userChose.equals("R") || userChose.equals("r")){
             registerPage();
+        } else {
+            System.out.println("Insert a valid prompt.");
         }
     }
 
@@ -29,6 +31,15 @@ public class App {
     }
 
     private static void registerPage(){
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("<< Register >> \n Username:");
+        String username = scanner.next();
+
+        System.out.println("Password:");
+        String password = scanner.next();
+
+        System.out.println("Confirm password");
+        String confirmPassword = scanner.next();
     }
 }

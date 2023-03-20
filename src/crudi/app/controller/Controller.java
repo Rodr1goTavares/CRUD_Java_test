@@ -11,8 +11,7 @@ public class Controller {
             return;
         }
 
-
-        System.out.println("Registred");
+        System.out.println("Registered");
     }
 
 }

@@ -1,10 +1,10 @@
+package crudi.app;
+
+import crudi.app.controller.Controller;
+
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        start(); //Starts a app menu.
-    }
-
     public static void start(){
         Scanner scanner = new Scanner(System.in);
 
@@ -28,6 +28,8 @@ public class App {
 
         System.out.println("Your password: ");
         String password = scanner.next();
+
+        Controller.verifyLogin(username, password);
     }
 
     private static void registerPage(){
@@ -41,5 +43,7 @@ public class App {
 
         System.out.println("Confirm password");
         String confirmPassword = scanner.next();
+
+        Controller.verifyRegister(username, password, confirmPassword);
     }
 }

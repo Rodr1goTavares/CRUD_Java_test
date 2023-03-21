@@ -1,2 +1,2 @@
 # CRUD_Java_test
-Pequeno teste de projetinho CRUD com java.
+Pequeno teste de projo CRUD com Java e MySQL.

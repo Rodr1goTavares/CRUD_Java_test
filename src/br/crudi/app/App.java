@@ -1,11 +1,12 @@
-package crudi.app;
+package br.crudi.app;
 
-import crudi.app.controller.Controller;
+import br.crudi.app.controller.Controller;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class App {
-    public static void start(){
+    public static void start() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the CRUD app. try: \n \"L\" to login. \n \"R\" to register.");

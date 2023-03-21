@@ -3,7 +3,7 @@ package br.crudi.app.controller;
 import br.crudi.app.connection.factory.dao.ClientDAO;
 import br.crudi.app.controller.Models.Register;
 
-import java.sql.SQLException;
+import java.sql.SQLOutput;
 
 public class Controller {
     public static void verifyLogin(String user, String password){
@@ -17,18 +17,19 @@ public class Controller {
         }
 
         //Sends register form to ClientDAO
-        Register.Client client = new Register.Client();
-        client.setUsername(user);
-        client.setPassword(password);
+        Register.Client clientCreated = new Register.Client();
+        clientCreated.setUsername(user);
+        clientCreated.setPassword(password);
 
-        System.out.println("user = " + client.getUsername() + ", password = " + client.getPassword());
+        System.out.println("user = " + clientCreated.getUsername() + ", password = " + clientCreated.getPassword());
 
-        try{
-            ClientDAO.addClient(client);
-            System.out.println("Registered");
+        try {
+            ClientDAO account = new ClientDAO();
+            account.addClient(clientCreated);
+            System.out.println("Registered !!");
         }
-        catch(Exception error){
-            System.out.println("A error as ocurred (br.crudi.app.controller): " + error);
+        catch (Exception error){
+            System.out.println("A error has occurred: (br.crudi.app.controller)");
         }
 
     }

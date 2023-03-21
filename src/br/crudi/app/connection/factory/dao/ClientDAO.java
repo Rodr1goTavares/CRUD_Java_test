@@ -1,32 +1,42 @@
 package br.crudi.app.connection.factory.dao;
 
-import br.crudi.app.connection.factory.ConnectionDB;
 import br.crudi.app.controller.Models.Register;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ClientDAO {
-    private static Connection connect;
+    private Connection connection;
 
-    public void clientDAO() throws SQLException, ClassNotFoundException {
-        connect = ConnectionDB.connectMySQL();
-    }
+    public ClientDAO(){
 
-    public static void addClient(Register.Client client) {
-        String sql = "INSERT INTO accounts (user, password) VALUES (?, ?)";
+        final String USERNAME = "root";
+        final String PASS = "rodrikgamer123";
+        final String DATABASE_URL = "jdbc:mysql://localhost:3306/java_crud";
 
         try{
-            PreparedStatement statement = connect.prepareStatement(sql);
-            statement.setString(1, client.getUsername());
-            statement.setString(2, client.getPassword());
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            this.connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASS);
+        }
+        catch(SQLException | ClassNotFoundException error){
+            System.out.println("A error has occurred (br.crudi.app.connection.factory.connectMySQL): " + error);
+        }
+    }
+
+    public void addClient(Register.Client clientCreated) {
+        try{
+            String sql = "INSERT INTO accounts (user, password) VALUES (?, ?)";
+            PreparedStatement statement = this.connection.prepareStatement(sql);
+            statement.setString(1, clientCreated.getUsername());
+            statement.setString(2, clientCreated.getPassword());
+
+            System.out.println("Added on Database");
         }
         catch(SQLException error){
             throw new RuntimeException(error);
         }
-
-
     }
 
 

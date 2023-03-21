@@ -12,9 +12,9 @@ public class ClientDAO {
 
     public ClientDAO(){
 
+        final String DATABASE_URL = "jdbc:mysql://localhost:3306/java_crud";
         final String USERNAME = "root";
         final String PASS = "rodrikgamer123";
-        final String DATABASE_URL = "jdbc:mysql://localhost:3306/java_crud";
 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -25,7 +25,7 @@ public class ClientDAO {
         }
     }
 
-    public void addClient(Register.Client clientCreated) {
+    public boolean insertClient(Register.Client clientCreated) {
         try{
             String sql = "INSERT INTO accounts (user, password) VALUES (?, ?)";
             PreparedStatement statement = this.connection.prepareStatement(sql);
@@ -33,9 +33,11 @@ public class ClientDAO {
             statement.setString(2, clientCreated.getPassword());
 
             System.out.println("Added on Database");
+            return true;
         }
         catch(SQLException error){
-            throw new RuntimeException(error);
+            System.out.println("A error as occurred: " + error);
+            return false;
         }
     }
 

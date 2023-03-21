@@ -25,7 +25,7 @@ public class Controller {
 
         try {
             ClientDAO account = new ClientDAO();
-            account.addClient(clientCreated);
+            account.insertClient(clientCreated);
             System.out.println("Registered !!");
         }
         catch (Exception error){

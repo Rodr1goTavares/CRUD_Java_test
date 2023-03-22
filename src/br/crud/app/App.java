@@ -1,8 +1,7 @@
-package br.crudi.app;
+package br.crud.app;
 
-import br.crudi.app.controller.Controller;
+import br.crud.app.controller.Controller;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class App {

@@ -18,7 +18,7 @@ public class DBtest {
         // Connect to database
         Connection connection = DriverManager.getConnection(DATABASE_URL, USERNAME, PASS);
 
-        //Insert
+        //Create
         String sql = "INSERT INTO accounts (user, password) VALUES (?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
 

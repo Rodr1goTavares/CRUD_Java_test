@@ -1,6 +1,5 @@
-package br.crud.app;
+package com.test.crud.application;
 
-import br.crud.app.controller.Controller;
 
 import java.util.Scanner;
 
@@ -28,8 +27,6 @@ public class App {
 
         System.out.println("Your password: ");
         String password = scanner.next();
-
-        Controller.verifyLogin(username, password);
     }
 
     private static void registerPage(){
@@ -44,6 +41,11 @@ public class App {
         System.out.println("Confirm password");
         String confirmPassword = scanner.next();
 
-        Controller.verifyRegister(username, password, confirmPassword);
+        if(password.equals(confirmPassword)){
+            Register.startRegister(username, password);
+        }
+        else {
+            System.out.println("The password don't match");
+        }
     }
 }

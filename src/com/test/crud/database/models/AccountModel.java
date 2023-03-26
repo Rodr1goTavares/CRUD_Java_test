@@ -1,6 +1,6 @@
-package br.crud.app.connection.factory.dao;
+package com.test.crud.database.models;
 
-public class DAOmodel {
+public class AccountModel {
         private String username;
         private String password;
         public String getUsername(){
